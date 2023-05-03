@@ -100,12 +100,6 @@ namespace computer.gr.lab1
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-        private void резкость2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters filter = new Sharpness2Filter();
-            backgroundWorker1.RunWorkerAsync(filter);
-        }
-
         private void тиснениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new EmbossFilter();
