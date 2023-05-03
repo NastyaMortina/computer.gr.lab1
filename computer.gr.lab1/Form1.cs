@@ -183,17 +183,5 @@ namespace computer.gr.lab1
             Gradient filter = new Gradient();
             backgroundWorker1.RunWorkerAsync(filter);
         }
-
-        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TopHat filter = new TopHat();
-            backgroundWorker1.RunWorkerAsync(filter);
-        }
-
-        private void blackHatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BlackHat filter = new BlackHat();
-            backgroundWorker1.RunWorkerAsync(filter);
-        }
     }
 }
