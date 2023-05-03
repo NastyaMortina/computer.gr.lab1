@@ -194,58 +194,6 @@ namespace computer.gr.lab1
             return Color.FromArgb(r, g, b);
         }
     } // градиент
-    class TopHat : MatrixFilter
-    {
-        public TopHat()
-        {
-
-        }
-        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
-        {
-            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
-
-            Bitmap openedImage = new Opening().processImage(sourceImage, worker);
-
-            for (int i = 0; i < sourceImage.Width; i++)
-            {
-                for (int j = 0; j < sourceImage.Height; j++)
-                {
-                    Color sourceColor = sourceImage.GetPixel(i, j);
-                    Color openedColor = openedImage.GetPixel(i, j);
-                    int r = Clamp(sourceColor.R - openedColor.R, 0, 255);
-                    int g = Clamp(sourceColor.G - openedColor.G, 0, 255);
-                    int b = Clamp(sourceColor.B - openedColor.B, 0, 255);
-                    resultImage.SetPixel(i, j, Color.FromArgb(r, g, b));
-                }
-            }
-            return resultImage;
-        }
-    } // tophat
-    class BlackHat : MatrixFilter
-    {
-        public BlackHat()
-        {
-
-        }
-        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
-        {
-            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
-            Bitmap closedImage = new Closing().processImage(sourceImage, worker);
-            for (int i = 0; i < sourceImage.Width; i++)
-            {
-                for (int j = 0; j < sourceImage.Height; j++)
-                {
-                    Color sourceColor = sourceImage.GetPixel(i, j);
-                    Color closedColor = closedImage.GetPixel(i, j);
-                    int r = Clamp(sourceColor.R - closedColor.R, 0, 255);
-                    int g = Clamp(sourceColor.G - closedColor.G, 0, 255);
-                    int b = Clamp(sourceColor.B - closedColor.B, 0, 255);
-                    resultImage.SetPixel(i, j, Color.FromArgb(r, g, b));
-                }
-            }
-            return resultImage;
-        }
-    } // blackhat
 }
 
 
