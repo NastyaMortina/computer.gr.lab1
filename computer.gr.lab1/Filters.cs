@@ -157,17 +157,6 @@ namespace computer.gr.lab1
         }
     }
 
-    class Sharpness2Filter : MatrixFilter //Резкость2
-    {
-        public Sharpness2Filter()
-        {
-            kernel = new float[,]
-            {
-                {-1,-1,-1},{-1,9,-1},{-1,-1,-1}
-            };
-        }
-    }
-
     class EmbossFilter : MatrixFilter //Тиснение
     {
         public EmbossFilter()
